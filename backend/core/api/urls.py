@@ -6,4 +6,6 @@ router = DefaultRouter()
 
 router.registry.extend(product_router.registry)
 
-urlpatterns = [path("", include(router.urls))]
+urlpatterns = [
+    path("", include(router.urls)),
+]
