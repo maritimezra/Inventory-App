@@ -18,8 +18,8 @@ function App() {
   }
 
   const postData = async() => {
-    const name = 'test x'
-    const description = 'test x description'
+    const name = 'test z'
+    const description = 'test z description'
     const body = {name ,description}
 
     const response = await axios.post(endpoint, body)
@@ -29,7 +29,13 @@ function App() {
 
   const handleSendData = async() => {
     const newData = await postData()
-    // add logic here
+    if  (newData){
+      setProductsData(prevstate =>  [...prevstate, newData])
+      alert(`New product with the id ${newData.id} has been created`)
+      fetchData()
+    } else {
+      alert("Error creating a new product")
+    }
   }
 
   useEffect(() => {

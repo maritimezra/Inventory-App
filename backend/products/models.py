@@ -14,4 +14,4 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.code:
             self.code = str(uuid.uuid4()).replace("-", "").upper()[:12]
-        super().save(args, **kwargs)
+        super().save(*args, **kwargs)
