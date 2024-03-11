@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from  'axios'
+import './App.css';
 
 function App() {
   const[productsData, setProductsData] = useState([])
@@ -31,10 +32,10 @@ function App() {
     const newData = await postData()
     if  (newData){
       setProductsData(prevstate =>  [...prevstate, newData])
-      alert(`New product with the id ${newData.id} has been created`)
+      alert(`A new product "${newData.name}" has been added to the inventory`)
       fetchData()
     } else {
-      alert("Error creating a new product")
+      alert("Error occured while adding new product")
     }
   }
 
